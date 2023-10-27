@@ -2,6 +2,12 @@
 #include <windows.h>
 #include "functions.h"
 
+
+//CONSTANTES :
+#define LIGNES 20
+#define COLONNES 10
+
+
 int main() {
 
     int f;
