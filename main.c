@@ -10,6 +10,11 @@
 //VARIABLES GLOBALES :
 char partie[LIGNES][COLONNES];
 
+//STRUCTURES
+typedef struct {
+    int Sniveau1,Sniveau2,Sniveau3,Stotal; //initialise le score total
+}Score;
+
 int main() {
 
     int f;
