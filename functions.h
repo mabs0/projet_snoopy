@@ -1,1 +1,1 @@
-int menu(char choix);
+void erreur();
