@@ -7,6 +7,8 @@
 #define LIGNES 20
 #define COLONNES 10
 
+//VARIABLES GLOBALES :
+char partie[LIGNES][COLONNES];
 
 int main() {
 
