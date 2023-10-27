@@ -36,6 +36,23 @@ int main() {
                 break;
 
             case 4:
+                switch (MDP()) {
+                    case 1:
+                        // ils faux lancer le niveau 1
+                        break;
+                    case 2:
+                        // il faut lancer le niveau 2
+                        break;
+                    case 3:
+                        // il faut lancer le niveau 3
+                        break;
+                    case 0:
+                        printf("mauvais mot de passe ! ");
+                        break;
+                default:
+                    printf("erreur");
+                    break;
+            }
                 break;
 
             case 5:
