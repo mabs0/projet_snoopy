@@ -3,7 +3,7 @@
 int life() {
     int vies=3;
 
-    if (/*variable du temps*/>120) {
+    if (time()>120) {
         vies-=1;
         //variable qui recommence le niveau
     }
