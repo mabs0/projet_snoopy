@@ -1,1 +1,2 @@
 void erreur();
+int scores();
