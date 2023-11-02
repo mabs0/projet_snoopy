@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <windows.h>
-#include "functions.h"
+#include "interface.h"
 
 
 //CONSTANTES :
@@ -14,13 +14,16 @@ char partie[LIGNES][COLONNES];
 typedef struct {
     int Sniveau1,Sniveau2,Sniveau3,Stotal; //initialise le score total
 }Score;
+typedef struct{
+    char apparence; //se référer à la feuille
+    int cassable, colision; //oui : 1, non : 0, errreur : autre
+}Bloc;
 
 int main() {
 
     int f;
     do {
-        printf("\n\n....................\n........Menu........\n....................\n..1.Regles du jeu...\n..2.Nouvelle partie.\n"
-               "..3.Charger.........\n..4.Mot de passe....\n..5.Scores..........\n..6.Quitter.........\n....................\n"); //affiche le menu
+        interface_menu();
         fflush(stdin); // assure le scanf
         scanf("%d", &f);
 
@@ -49,10 +52,10 @@ int main() {
                     case 0:
                         printf("mauvais mot de passe ! ");
                         break;
-                default:
-                    printf("erreur");
-                    break;
-            }
+                    default:
+                        printf("erreur");
+                        break;
+                }
                 break;
 
             case 5:
