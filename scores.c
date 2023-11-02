@@ -15,4 +15,4 @@ int current_score.Sniveau1 = time_rest1 * 100;
 int current_score.Sniveau2 = time_rest2 * 100;
 int current_score.Sniveau3 = time_rest3 * 100;
 
-int Stotal = Sniveau1 + Sniveau2 + Sniveau3;
+int current_score.Stotal = current_score.Sniveau1 + current_score.Sniveau2 + current_score.Sniveau3;
