@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 void interface_erreur() {
     printf("\n\n\n....................\n....................\n.......ERREUR.......\n......VEUILLEZ......\n......CHOISIR.......\n.....UNE OPTION.....\n.....DISPONIBLE.....\n....................\n....................\n....................\n\n\n"); //affiche l'écran d'erreur
 }
