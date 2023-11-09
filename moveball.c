@@ -12,11 +12,11 @@ void gotoligcol( int lig, int col )
 }
 
 int random_nb_between(int a,int b) {
-    int choix = rand()%2
+    int choix = rand()%2;
     if (choix == 0) {
-        return a }
+        return a; }
     if (choix == 1) {
-        return b }
+        return b; }
 }
 
 int ballmoove () {
@@ -40,7 +40,7 @@ int ballmoove () {
 }
 
 
-int main (){
+int main () {
 
     ballmoove();
 
