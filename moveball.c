@@ -11,6 +11,14 @@ void gotoligcol( int lig, int col )
     SetConsoleCursorPosition( GetStdHandle( STD_OUTPUT_HANDLE ), ballcoord );
 }
 
+int random_nb_between(int a,int b) {
+    int choix = rand()%2
+    if (choix == 0) {
+        return a }
+    if (choix == 1) {
+        return b }
+}
+
 int ballmoove () {
     int a = 0;
     int x = 0;
@@ -20,8 +28,8 @@ int ballmoove () {
         gotoligcol(x, y);
         putchar(' ');
         // Génère un déplacement aléatoire d'une case
-        x = x + (rand() % 3) - 1; // -1, 0 ou 1
-        y = y + (rand() % 3) - 1; // -1, 0 ou 1
+        x = x + random_nb_between(-1,1); // -1, 0 ou 1
+        y = y + random_nb_between(-1,1); // -1, 0 ou 1
 
 
         gotoligcol(x, y);
