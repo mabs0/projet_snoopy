@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <windows.h>
 
 void gotoligcol( int lig, int col )
 {
