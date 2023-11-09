@@ -27,7 +27,7 @@ int ballmoove () {
     while (a != 6) {
         gotoligcol(x, y);
         putchar(' ');
-        // Génère un déplacement aléatoire d'une case
+        // Génère un déplacement aléatoire d'une case en diagonale.
         x = x + random_nb_between(-1,1); // -1, 0 ou 1
         y = y + random_nb_between(-1,1); // -1, 0 ou 1
 
