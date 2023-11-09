@@ -14,3 +14,27 @@ void interface_game_over() {
 void interface_menu() {
     printf("\n\n\n....................\n........Menu........\n....................\n..1.Regles du jeu...\n..2.Nouvelle partie.\n..3.Charger.........\n..4.Mot de passe....\n..5.Scores..........\n..6.Quitter.........\n....................\n\n\n"); //affiche le menu
 }
+
+void regles_du_jeu() {
+    printf("\n\n\n....................\n....................\n.Le but de Snoopy...\n.est de recuperer...\n.4 oiseaux aux 4....\n.coins du niveau....\n.en un temps........\n..imparti...........\n....................\n....................\n\n\n");
+    sleep(4);
+    printf("\n\n\n....................\n....................\n.Pour cela, Snoopy..\n.va devoir utiliser.\n.tous les moyens....\n.a sa disposition...\n.et esquiver des....\n.obstacles..........\n....................\n....................\n\n\n");
+    sleep(4);
+    printf("\n\n\n....................\n....................\n.Snoopy peut........\n.deplacer et casser.\n.des blocs pour.....\n.atteindre les......\n.oiseaux a..........\n.recuperer..........\n....................\n....................\n\n\n");
+    sleep(4);
+    printf("\n\n\n....................\n....................\n.Mais il doit faire.\n.attention a la.....\n.balle et aux blocs.\n.pieges qui ont.....\n.pour but de........\n.l'arreter..........\n....................\n....................\n\n\n");
+    sleep(4);
+    printf("\n\n\n....................\n....................\n....................\n....................\n.......BONNE........\n.......CHANCE.......\n....................\n....................\n....................\n....................\n\n\n");
+}
+
+void regles_du_jeu() {
+    printf("\n\n\n....................\n....................\n.Le but de Snoopy...\n.est de recuperer...\n.4 oiseaux aux 4....\n.coins du niveau....\n.en un temps........\n..imparti...........\n....................\n....................\n\n\n");
+    sleep(4);
+    printf("\n\n\n....................\n....................\n.Pour cela, Snoopy..\n.va devoir utiliser.\n.tous les moyens....\n.a sa disposition...\n.et esquiver des....\n.obstacles..........\n....................\n....................\n\n\n");
+    sleep(4);
+    printf("\n\n\n....................\n....................\n.Snoopy peut........\n.deplacer et casser.\n.des blocs pour.....\n.atteindre les......\n.oiseaux a..........\n.recuperer..........\n....................\n....................\n\n\n");
+    sleep(4);
+    printf("\n\n\n....................\n....................\n.Mais il doit faire.\n.attention a la.....\n.balle et aux blocs.\n.pieges qui ont.....\n.pour but de........\n.l'arreter..........\n....................\n....................\n\n\n");
+    sleep(4);
+    printf("\n\n\n....................\n....................\n....................\n....................\n.......BONNE........\n.......CHANCE.......\n....................\n....................\n....................\n....................\n\n\n");
+}
