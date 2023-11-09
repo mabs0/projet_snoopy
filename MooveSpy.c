@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 void gotoligcol( int lig, int col )
 {
 // def ligne colone 
