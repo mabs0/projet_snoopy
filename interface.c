@@ -26,15 +26,3 @@ void regles_du_jeu() {
     sleep(4);
     printf("\n\n\n....................\n....................\n....................\n....................\n.......BONNE........\n.......CHANCE.......\n....................\n....................\n....................\n....................\n\n\n");
 }
-
-void regles_du_jeu() {
-    printf("\n\n\n....................\n....................\n.Le but de Snoopy...\n.est de recuperer...\n.4 oiseaux aux 4....\n.coins du niveau....\n.en un temps........\n..imparti...........\n....................\n....................\n\n\n");
-    sleep(4);
-    printf("\n\n\n....................\n....................\n.Pour cela, Snoopy..\n.va devoir utiliser.\n.tous les moyens....\n.a sa disposition...\n.et esquiver des....\n.obstacles..........\n....................\n....................\n\n\n");
-    sleep(4);
-    printf("\n\n\n....................\n....................\n.Snoopy peut........\n.deplacer et casser.\n.des blocs pour.....\n.atteindre les......\n.oiseaux a..........\n.recuperer..........\n....................\n....................\n\n\n");
-    sleep(4);
-    printf("\n\n\n....................\n....................\n.Mais il doit faire.\n.attention a la.....\n.balle et aux blocs.\n.pieges qui ont.....\n.pour but de........\n.l'arreter..........\n....................\n....................\n\n\n");
-    sleep(4);
-    printf("\n\n\n....................\n....................\n....................\n....................\n.......BONNE........\n.......CHANCE.......\n....................\n....................\n....................\n....................\n\n\n");
-}
