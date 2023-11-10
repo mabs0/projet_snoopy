@@ -14,6 +14,8 @@ void gotoligcol( int lig, int col )
 int dghb(){
     char depl;
     depl = getch();
+    gotoligcol(17,0);
+    printf("Veuillez jouer avec les fleches");
     gotoligcol(0, 0);
     return depl;
 }
@@ -30,16 +32,16 @@ int maina () //affiche A a la ligne i et colone j
         gotoligcol(i, j);
         printf(" ", a);
 
-        if (a == 'd') { //droite
+        if (a == 77) { //droite
             j++;
         }
-        if (a == 'q') { //gauche
+        if (a == 75) { //gauche
             j--;
         }
-        if (a == 'z') { //haut
+        if (a == 72) { //haut
             i--;
         }
-        if (a == 's') {   //bas
+        if (a == 80) {   //bas
             i++;
         }
 
