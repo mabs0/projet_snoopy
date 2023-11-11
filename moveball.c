@@ -21,13 +21,13 @@ int random_nb_between(int a,int b) {
 
 int ballmoove () {
     int a = 0;
-    int x = 0;
-    int y = 0;
+    int x = 20;
+    int y = 20;
 
     while (a != 6) {
         gotoligcol(x, y);
         putchar(' ');
-        // Génère un déplacement aléatoire d'une case en diagonale.
+        // Génère un déplacement aléatoire d'une case
         x = x + random_nb_between(-1,1); // -1, 0 ou 1
         y = y + random_nb_between(-1,1); // -1, 0 ou 1
 
