@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <windows.h>
 #include "scores.c"
-#include "interface.h"
+#include "functions.h"
 #include "structure_et_constante.c"
 Niveau sauvegarde1;
 Niveau sauvegarde2;
