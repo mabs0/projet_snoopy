@@ -16,7 +16,7 @@ int dghb(){
     depl = getch();
     gotoligcol(17,0);
     printf("Veuillez jouer avec les fleches");
-    gotoligcol(0, 0);
+    gotoligcol(1, 1);
     return depl;
 }
 
