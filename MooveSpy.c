@@ -32,16 +32,16 @@ int maina () //affiche A a la ligne i et colone j
         gotoligcol(i, j);
         printf(" ", a);
 
-        if (a == 77) { //droite
+        if ((a == 77)&&(niv[i][j+1] == 1)) { //droite
             j++;
         }
-        if (a == 75) { //gauche
+        if ((a == 75)&&(niv[i][j-1] == 1)) { //gauche
             j--;
         }
-        if (a == 72) { //haut
+        if ((a == 72)&&(niv[i-1][j] == 1)) { //haut
             i--;
         }
-        if (a == 80) {   //bas
+        if ((a == 80)&&(niv[i+1][j] == 1)) {   //bas
             i++;
         }
 
