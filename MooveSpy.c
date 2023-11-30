@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <windows.h>
-#include <conio.h>
+#include "functions.h"
 
 void gotoligcol( int lig, int col )
 {
@@ -12,45 +10,14 @@ void gotoligcol( int lig, int col )
 }
 
 int dghb(){
-    char depl;
-    depl = getch();
-    gotoligcol(17,0);
-    printf("Veuillez jouer avec les fleches");
-    gotoligcol(1, 1);
-    return depl;
-}
-
-int maina () //affiche A a la ligne i et colone j
-{
-    char a = 0;
-    int i = 0;
-    int j = 0;
-
-    while (a != 6) {
-        a = dghb();
-
-        gotoligcol(i, j);
-        printf(" ", a);
-
-        if ((a == 77)&&(niv[i][j+1] == 1)) { //droite
-            j++;
-        }
-        if ((a == 75)&&(niv[i][j-1] == 1)) { //gauche
-            j--;
-        }
-        if ((a == 72)&&(niv[i-1][j] == 1)) { //haut
-            i--;
-        }
-        if ((a == 80)&&(niv[i+1][j] == 1)) {   //bas
-            i++;
-        }
-
-        gotoligcol(i, j);
-        printf("A");
+    if (_kbhit()) {
+        int depl = getch();
+        gotoligcol(1, 1);
+        return depl;
     }
-    return 0;
+    else {
+        return 0;
+    }
 }
 
-int main() {
-    while(1) maina();
-}
+
