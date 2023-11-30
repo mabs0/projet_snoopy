@@ -1,8 +1,5 @@
-#include <stdio.h>
-#include <windows.h>
-#include "scores.c"
 #include "functions.h"
-#include "structure_et_constante.c"
+
 Niveau sauvegarde1;
 Niveau sauvegarde2;
 Niveau sauvegarde3;
@@ -15,12 +12,12 @@ void sauvegarder(/*current_game*/) {
             interface_erreur();
         }
     } while ((reponse!=1)&&(reponse!=2)&&(reponse!=3));
-    switch (reponse) {
-        case 1 :
-            sauvegarde1=/*current_game*/;
-        case 2 :
-            sauvegarde2=/*current_game*/;
-        case 3 :
-            sauvegarde3=/*current_game*/;
-    }
+    //switch (reponse) {
+        //case 1 :
+            //  sauvegarde1=/*current_game*/;
+        //case 2 :
+            // sauvegarde2=/*current_game*/;
+        //case 3 :
+            // sauvegarde3=/*current_game*/;
+    //}
 }
