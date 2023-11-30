@@ -1,15 +1,4 @@
-#include <stdio.h> // Inclusion de la bibliothèque standard d'entrée/sortie pour permettre l'utilisation des fonctions d'entrée/sortie standard comme printf et putchar.
-#include <windows.h> // Inclusion de la bibliothèque Windows pour utiliser des fonctions spécifiques à Windows, telles que SetConsoleCursorPosition et GetStdHandle.
-#include <unistd.h> // Inclusion de la bibliothèque UNIX pour utiliser la fonction sleep, qui suspend l'exécution du programme pendant le nombre de secondes spécifié.
-
-void gotoligcol(int lig, int col) // Déclaration de la fonction gotoligcol qui déplace le curseur de la console à une position spécifiée par les arguments lig (ligne) et col (colonne).
-{
-    // ressources
-    COORD ballcoord; // Déclaration d'une structure COORD pour stocker les coordonnées du curseur de la console.
-    ballcoord.X = col; // Attribution des valeurs col et lig aux propriétés X et Y de la structure COORD.
-    ballcoord.Y = lig;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), ballcoord); // Déplacement du curseur de la console à la position spécifiée par ballcoord.
-}
+#include "functions.h"
 
 int random_nb_between(int a, int b) // Déclaration de la fonction random_nb_between qui génère un nombre aléatoire entre a et b inclus.
 {
@@ -24,30 +13,27 @@ int random_nb_between(int a, int b) // Déclaration de la fonction random_nb_bet
     }
 }
 
-int ballmoove() // Déclaration de la fonction ballmoove qui simule le mouvement d'une balle dans la console.
-{
-    int a = 0; // Initialisation des variables pour contrôler le déplacement de la balle.
-    int x = 20;
-    int y = 20;
-
-    while (a != 6) // Début d'une boucle while qui continue tant que a n'est pas égal à 6.
-    {
-        gotoligcol(x, y); // Déplace le curseur à la position actuelle et affiche un espace pour effacer la balle précédente.
-        putchar(' ');
-
-        // Génère un déplacement aléatoire d'une case en x et y.
-        x = x + random_nb_between(-1, 1); // -1, 0 ou 1
-        y = y + random_nb_between(-1, 1); // -1, 0 ou 1
-
-        gotoligcol(x, y); // Déplace le curseur à la nouvelle position et affiche la balle ('X').
-        putchar('X');
-        sleep(1); // Pause d'une seconde pour ralentir le mouvement.
-        a++; // Incrémentation de a pour contrôler le nombre d'itérations de la boucle.
+int clock_ball(clock_t init_ball){
+    if ((init_ball/500)!=(clock()/500)){
+        return 1;
+    }
+    else {
+        return 0;
     }
 }
 
-int main() // Déclaration de la fonction principale main.
-{
-    ballmoove(); // Appel de la fonction ballmoove.
-    return 0; // Fin du programme avec un code de retour 0.
+void moveball(int niv[COLONNES][LIGNES], int x, int y) { // Déclaration de la fonction ballmoove qui simule le mouvement d'une balle dans la console.
+    int a = 0; // Initialisation des variables pour contrôler le déplacement de la balle.
+    gotoligcol(y, x); // Déplace le curseur à la position actuelle et affiche un espace pour effacer la balle précédente.
+    printf(" ");
+    x=0;
+    y=0;
+    do {x = x + random_nb_between(-1, 1); // -1, 0 ou 1
+        y = y + random_nb_between(-1, 1); // -1, 0 ou 1
+    } while (niv[x][y]!=1);
+    // Génère un déplacement aléatoire d'une case en x et y.
+    x = x + random_nb_between(-1, 1); // -1, 0 ou 1
+    y = y + random_nb_between(-1, 1); // -1, 0 ou 1
+    gotoligcol(x, y); // Déplace le curseur à la nouvelle position et affiche la balle ('X').
+    printf("X");
 }
