@@ -1,15 +1,17 @@
-#include <stdio.h>
-#include <unistd.h>
+#include "functions.h"
 
-int main() {
-    int seconds=120;
-    while (seconds>=0) {
-        printf("Temps restant :%d",seconds);
-        fflush(stdout);
-        sleep(1);
-        seconds--;
-        system("cls");
-    }
-    printf("Fin du temps !");
-    return 0;
+int horloge(){
+    clock_t temps;
+    temps = clock()/1000;
+    return temps;
+}
+
+int temps_restant(int temps_init) {
+    int temps = 120 - (horloge() - temps_init);
+    return temps;
+}
+
+void timer (int temps_init) {
+    gotoligcol(11,0);
+    printf("Temps restant : %d s.", temps_restant(temps_init));
 }
