@@ -1,6 +1,6 @@
-#include "functions.h"
+#include "functions.h" // Inclusion du fichier "functions.h"
 
 int main() {
-    menu();
-    return 0;
+    menu(); // Appelle la fonction menu()
+    return 0; // Termine le programme 
 }
