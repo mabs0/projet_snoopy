@@ -4,25 +4,25 @@ int structure_niv_1[COLONNES][LIGNES]= {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 int structure_niv_2[COLONNES][LIGNES]= {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,1,1,1,1,1,1,1,0,1,1,1,1,0,0,0,0},{0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,0},{0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,0},{0,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
 int structure_niv_3[COLONNES][LIGNES]= {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0},{0,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,0,0,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,0},{0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0,1,1,0},{0,1,1,1,1,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
 
-int affichage_niveau(int niv[COLONNES][LIGNES], int x, int y) {
-    gotoligcol(0,0);
-    int i, j;
-    for (i = 0; i < 10; i++){
-
-        for (j = 0; j < 20; j++){
-
-            if (niv[i][j] == 1){
-                printf(" ");
-            }
-            else{
-                printf("%d",niv[i][j]);
+int affichage_niveau(int niv[COLONNES][LIGNES], int x, int y) { // prend en paramètres une matrice niv, ainsi que des coordonnées x et y 
+    gotoligcol(0, 0); // Appelle une fonction qui déplace le curseur à la ligne 0 et à la colonne 0 sur la console.
+    int i, j; // Déclare les variables de boucle i et j 
+    for (i = 0; i < 10; i++) { // Boucle sur les lignes de la matrice.
+        for (j = 0; j < 20; j++) { // Boucle sur les colonnes de la matrice.
+            if (niv[i][j] == 1) { // Si la valeur dans la matrice à la position (i, j) est égale à 1 
+                printf(" "); // Affiche un espace
+            } 
+            else {  // Sinon
+                printf("%d", niv[i][j]); // Affiche la valeur présente dans la matrice à la position (i, j)
             }
         }
-        printf("\n");
+        printf("\n"); // Affiche un retour a la ligne
     }
-    gotoligcol(x,y);
+
+    gotoligcol(x, y); // Déplace le curseur à la position spécifiée par les coordonnées x et y dans la console.
     return 0;
 }
+    
 
 int niveau (int niv[COLONNES][LIGNES], int x_depart_snoopy, int y_depart_snoopy, int x_depart_ball, int y_depart_ball) //affiche A a la ligne i et colone j
 {
