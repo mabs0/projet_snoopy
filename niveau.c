@@ -24,45 +24,51 @@ int affichage_niveau(int niv[COLONNES][LIGNES], int x, int y) { // prend en para
 }
     
 
-int niveau (int niv[COLONNES][LIGNES], int x_depart_snoopy, int y_depart_snoopy, int x_depart_ball, int y_depart_ball) //affiche A a la ligne i et colone j
-{
-    clock_t temps_init = clock()/1000;
-    int a = 0;
-    int t = 120;
-    int i = y_depart_snoopy;
-    int j = x_depart_snoopy;
-    int x = x_depart_ball;
-    int y = y_depart_ball;
+int niveau(int niv[COLONNES][LIGNES], int x_depart_snoopy, int y_depart_snoopy, int x_depart_ball, int y_depart_ball) { // prend en paramètres une matrice niv et les positions de départ de Snoopy et de la balle.
+    clock_t temps_init = clock() / 1000; // Initialise une variable temps_init 
 
-    clear_interface(j,i);
-    timer(temps_init);
-    affichage_niveau(niv,i,j);
-    gotoligcol(i, j);
-    printf("S");
-    gotoligcol(y, x);
-    printf("X");
-    while (t>0) {
-        clock_t init_ball = clock();
-        a = dghb();
+    int a = 0; // Variable pour stocker la direction de déplacement de Snoopy
+    int t = 120; // Variable pour le temps total du niveau, initialisé à 120 secondes
+    int i = y_depart_snoopy; // Position verticale de départ de Snoopy
+    int j = x_depart_snoopy; // Position horizontale de départ de Snoopy
+    int x = x_depart_ball; // Position horizontale de départ de la balle
+    int y = y_depart_ball; // Position verticale de départ de la balle
 
-        if ((a == 77)&&(niv[i][j+1] != 0)) { //droite
-            if (niv[i][j+1] == 1) { //déplacement de base
+    clear_interface(j, i); // Efface l'interface à la position de départ de Snoopy
+    timer(temps_init); // Affiche le timer à partir du temps initial du niveau
+    affichage_niveau(niv, i, j); // Affiche le niveau avec la position de départ de Snoopy
+    gotoligcol(i, j); // Place le curseur à la position de départ de Snoopy dans le niveau
+    printf("S"); // Affiche Snoopy à sa position de départ
+    gotoligcol(y, x); // Place le curseur à la position de départ de la balle dans le niveau
+    printf("X"); // Affiche la balle à sa position de départ
+
+    while (t > 0) { // Boucle principale du niveau, basée sur le temps restant
+        clock_t init_ball = clock(); // Enregistre le temps initial pour le mouvement de la balle
+        a = dghb(); // direction de déplacement de Snoopy
+
+        if ((a == 77) && (niv[i][j + 1] != 0)) { // Si la direction de déplacement est vers la droite et qu'il n'y a pas de collision avec un mur
+            if (niv[i][j + 1] == 1) { // Si la prochaine position est libre ('1'), déplace Snoopy vers la droite.
                 gotoligcol(i, j);
                 printf(" ");
                 j++;
                 gotoligcol(i, j);
                 printf("S");
             }
-            if ((niv[i][j+1] == 6)&&(niv[i][j+2] == 1)) { //interaction avec bloc poussable
+
+            if ((niv[i][j + 1] == 6) && (niv[i][j + 2] == 1)) {
+                // Si Snoopy rencontre un bloc poussable ('6') à côté de lui et qu'il y a un espace libre après le bloc :
+
                 gotoligcol(i, j);
                 printf(" ");
                 j++;
                 gotoligcol(i, j);
                 printf("S");
-                niv[i][j+1] = 1;
-                gotoligcol(i, j+1);
+
+                // Met à jour la position du bloc poussable et de Snoopy.
+                niv[i][j + 1] = 1;
+                gotoligcol(i, j + 1);
                 printf("6");
-                niv[i][j+1] = 6;
+                niv[i][j + 1] = 6;
             }
             if (niv[i][j+1] == 3) { //interaction avec bloc cassable fracturé
                 gotoligcol(i, j);
@@ -188,12 +194,12 @@ int niveau (int niv[COLONNES][LIGNES], int x_depart_snoopy, int y_depart_snoopy,
             gotoligcol(y, x); // Déplace le curseur à la nouvelle position et affiche la balle ('X').
             printf("X");
         }*/
-        t = temps_restant(temps_init);
-        if ((y==i)&&(x==j)) {
-            clear_interface();
-            interface_game_over();
-            sleep(3);
-            t=0;
+        t = temps_restant(temps_init); // Met à jour le temps restant en appelant la fonction temps_restant avec le temps initial
+        if ((y == i) && (x == j)) { // Vérifie si la position actuelle de Snoopy (i, j) est égale à la position de la balle (y, x)
+            clear_interface(); // Efface l'interface du jeu
+            interface_game_over(); // Affiche l'écran de fin de jeu
+            sleep(3); // Attend pendant 3 secondes pour afficher l'écran de fin de jeu
+            t = 0; // Réinitialise le temps restant à zéro pour sortir de la boucle de jeu
         }
     }
     return 0;
