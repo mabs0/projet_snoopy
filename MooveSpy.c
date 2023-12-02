@@ -1,22 +1,21 @@
-#include "functions.h" // Inclusion du fichier d'en-tête functions.h qui contient des déclarations de fonctions
+#include "functions.h" // appel la bibliothèque functions.h
 
-void gotoligcol(int lig, int col) {
-    // Définition de la structure COORD pour stocker les coordonnées
+void gotoligcol(int lig, int col) { // Définition de la structure COORD pour stocker les coordonnées
     COORD mycoord;
     // Assignation des valeurs de ligne et colonne aux coordonnées
     mycoord.X = col;
     mycoord.Y = lig;
-    // Déplacement du curseur à l'emplacement spécifié en utilisant les coordonnées
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), mycoord);
+    
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), mycoord); // Déplace le curseur à l'emplacement spécifié en utilisant les coordonnées
 }
 
 int dghb() {
-    if (_kbhit()) { // Vérification de la saisie clavier
+    if (_kbhit()) { // Vérification 
         int depl = getch(); // Lecture d'un caractère du clavier
-        gotoligcol(1, 1); // Déplacement du curseur à la ligne 1, colonne 1
-        return depl; // Renvoie la valeur du caractère lu
+        gotoligcol(1, 1); // Déplace le curseur à la ligne 1, colonne 1
+        return depl; // Renvoie la valeur dep1
     } else {
-        return 0; // Renvoie 0 si aucune saisie clavier n'est détectée
+        return 0; // Renvoie 0 
     }
 }
 
