@@ -202,5 +202,6 @@ int niveau(int niv[COLONNES][LIGNES], int x_depart_snoopy, int y_depart_snoopy, 
             t = 0; // Réinitialise le temps restant à zéro pour sortir de la boucle de jeu
         }
     }
+    pause();
     return 0;
 }
