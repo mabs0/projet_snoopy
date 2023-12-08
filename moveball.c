@@ -14,16 +14,11 @@ int random_nb_between(int a, int b) // Déclaration de la fonction random_nb_bet
 }
 
 int clock_ball(clock_t init_ball){
-    // Cette fonction prend un paramètre init_ball
     if ((init_ball/500)!=(clock()/500)){
-        // Vérifie si la condition est respecté
         return 1;
-        // Renvoie 1 si les quotients sont différents
     }
     else {
-        // Sinon
         return 0;
-        // Renvoie 0 pour indiquer que le temps écoulé est inférieur à 500 
     }
 }
 
