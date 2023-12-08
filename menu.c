@@ -1,61 +1,72 @@
-#include "functions.h" // Inclusion du fichier "functions.h"
+#include "functions.h"
+
 
 int menu() {
-    interface_titre(); // Affiche le titre du jeu
-
-    int f, g; // Déclaration de variables 
-
+    interface_titre();
+    int f,g,c,l;
+    int niv[COLONNES][LIGNES]={{0}};
+    char sauvegardes[20] = "sauvegardes.txt";
+    int t = 120;
+    int x=0, y=0, i=0, j=0, oiseaux=0, level_number=0;
     do {
-        interface_menu(); // Affiche le menu principal du jeu
-
-        fflush(stdin); // Nettoie le tampon d'entrée avant d'utiliser scanf
-        scanf("%d", &f); // Attend une entrée utilisateur 
-
+        interface_menu();
+        fflush(stdin); // assure le scanf
+        scanf("%d", &f);
+        for (c=0; c<COLONNES; c++) { //remise à zéro des niveau
+            for (l=0; l<LIGNES; l++) {
+                niv_1[c][l]=template_niv_1[c][l];
+                niv_2[c][l]=template_niv_2[c][l];
+                niv_3[c][l]=template_niv_3[c][l];
+            }
+        }
         switch (f) {
-            case 1: // Affiche les règles du jeu
+            case 1: //Règles du jeu
                 interface_regles_du_jeu();
-                break; // sort de la case
+                break;
 
-            case 2: // Lance un nouveau jeu à partir du niveau 1
-                clear_interface(); // Efface l'interface
-                niveau(structure_niv_1, 9, 8, 5, 9); // Lance le niveau 1
-                break; // sort de la case
+            case 2: //Lancer un nouveau Jeu à partir du niveau 1
+                clear_interface();
+                niveau(niv_1, 9, 8, 9, 5, 1, 120, 0);
+                break;
 
-            case 3: // Charge une partie sauvegardée
-                interface_sauvegarde();
-                break; // sort de la case
+            case 3: //Charger une partie
+                charger(niv, t, x, y, i, j, oiseaux, level_number);
+                niveau(niv, x, y, j,i, level_number, t, oiseaux);
+                break;
 
-            case 4: // Demande un mot de passe pour accéder à un niveau spécifique
-                switch (MDP()) { // Appelle la fonction MDP() pour obtenir un mot de passe
+            case 4: //Mot de passe
+
+                switch (MDP()) {
                     case 1:
-                        // Lancer le niveau 1
-                        break; // sort de la case
+                        niveau(niv_1, 9, 8, 5, 9, 1, 120,0);
+                        break;
                     case 2:
-                        // Lancer le niveau 2
-                        break; // sort de la case
-                    case 3:
-                        // Lancer le niveau 3
-                        break; // sort de la case
+                        niveau(niv_2,17,2,17,8,2,120,0);
+                        break;
+                    case 3:niveau(niv_3,1,1,10,4,3, 120,0);
+                        break;
                     case 0:
-                        printf("mauvais mot de passe ! "); // Affiche
-                        break; // sort de la case
+                        printf("mauvais mot de passe ! ");
+                        break;
                     default:
-                        printf("erreur"); // Affiche
-                        break; // sort de la case
+                        printf("erreur");
+                        break;
                 }
-                break; // sort de la case
 
-            case 5: // Affiche les scores
-                break; // sort de la case
+                break;
 
-            case 6: // Quitte le jeu
-                printf("A bientot ! "); // Affiche
-                break; // sort de la case
- 
-            default: // Si l'option n'est pas valide
+            case 5: //Scores
+                interface_erreur();
+                break;
+
+            case 6 : //Quitter
+                printf("A bientot ! ");
+                break;
+
+            default:
                 printf("veuillez choisir une des options donnée :");
         }
-    } while (f != 6); // Répète le menu jusqu'à ce que l'utilisateur choisisse de quitter (option 6)
+    }while (f != 6);
 
-    return 0; // Retourne 0 à la fin de la fonction
+    return 0;
 }
